@@ -22,51 +22,241 @@
 !| script             |com.appiancorp.ps.automatedtest.fixture.SitesFixture                        |
 |setup with           |CHROME                               |browser                               |
 |set appian url to    |https://appiancoe.vuram.com/suite/sites/as_virtualwarehouse/page/order-parts|
-|set appian version to|23.1                                                                        |
+|set appian version to|23.2                                                                        |
 |set appian locale to |en_US                                                                       |
 |login with username  |Virtualuser                                                                 |
 
 ***!
-!|script                                                                                                                                                   |
-|click on checkbox option          |[1]                                                                                                                    |
-|populate field                    |Product Group                              |with value|Gops                                                            |
-|click on radio option             |1020                                                                                                                   |
-|click on radio option             |640200                                                                                                                 |
-|wait for                          |5                                          |seconds                                                                    |
-|populate field                    |IO                                         |with      |[2] |partially matching picker field suggestion                 |
-|wait for                          |5                                          |seconds                                                                    |
-|populate field                    |CC                                         |with      |[1] |partially matching picker field suggestion                 |
-|wait for                          |5                                          |seconds                                                                    |
-|populate field                    |Short Order Description                    |with value|Testing inthe folder is the first step                          |
-|click on checkbox option          |[1]                                                                                                                    |
-|wait for                          |5                                          |seconds                                                                    |
-|click on checkbox option          |[2]                                                                                                                    |
-|wait for                          |5                                          |seconds                                                                    |
-|click on checkbox option          |[1]                                                                                                                    |
-|$deliver=                         |get random alphabet string                 |20                                                                         |
-|populate field                    |Deliver To                                 |with value|$deliver                                                        |
-|$title=                           |get random integer from                    |1         |to  |100                                                        |
-|populate field                    |Building                                   |with value|$title                                                          |
-|$office=                          |get random alphabet string                 |50                                                                         |
-|populate field                    |Cube/Office/Lab Location                   |with value|$office                                                         |
-|wait for progress bar                                                                                                                                     |
-|populate grid                     |[1]                                        |column    |[2] |row|[1]|with|[5]|partially matching picker field suggestion|
-|populate grid                     |[1]                                        |column    |[10]|row|[1]|with|Stock                                         |
-|populate grid                     |[1]                                        |column    |[6] |row|[1]|with|3                                             |
-|populate grid                     |[1]                                        |column    |[7] |row|[1]|with|set start datetime                                   |
-|click on link                     |Add parts                                                                                                              |
-|populate grid                     |[1]                                        |column    |[2] |row|[2]|with|[4]|partially matching picker field suggestion|
-|populate grid                     |[1]                                        |column    |[6] |row|[2]|with|4                                             |
-|populate grid                     |[1]                                        |column    |[7] |row|[2]|with|07/13/2023                                    |
-|populate grid                     |[1]                                        |column    |[10]|row|[2]|with|Stock                                         |
-|click on link                     |PROCEED TO CHECKOUT                                                                                                    |
-|verify confirmation dialog header |Your order have been submitted successfully|is present                                                                 |
-|verify confirmation dialog message|OrderReference Number                      |is present                                                                 |
-|click on button                   |ok                                                                                                                     |
-|navigate to site                  |https://appiancoe.vuram.com/suite/sites/as_virtualwarehouse/page/virtual-warehouse                                     |
+!|script                                                                                                                                        |
+|click on checkbox option|[1]                                                                                                                   |
+|populate field          |Product Group                             |with value|Gops                                                            |
+|click on radio option   |1020                                                                                                                  |
+|click on radio option   |640200                                                                                                                |
+|wait for                |5                                         |seconds                                                                    |
+|populate field          |IO                                        |with      |[2] |partially matching picker field suggestion                 |
+|wait for                |5                                         |seconds                                                                    |
+|populate field          |CC                                        |with      |[1] |partially matching picker field suggestion                 |
+|wait for                |5                                         |seconds                                                                    |
+|take screenshot         |Order Part                                                                                                            |
+|populate field          |Short Order Description                   |with value|Testing inthe folder is the first step                          |
+|click on checkbox option|[1]                                                                                                                   |
+|wait for                |5                                         |seconds                                                                    |
+|click on checkbox option|[2]                                                                                                                   |
+|wait for                |5                                         |seconds                                                                    |
+|click on checkbox option|[1]                                                                                                                   |
+|$deliver=               |get random alphabet string                |20                                                                         |
+|populate field          |Deliver To                                |with value|$deliver                                                        |
+|$title=                 |get random integer from                   |20        |to  |100                                                        |
+|populate field          |Building                                  |with value|$title                                                          |
+|$office=                |get random alphabet string                |50                                                                         |
+|populate field          |Cube/Office/Lab Location                  |with value|$office                                                         |
+|wait for progress bar                                                                                                                          |
+|populate grid           |[1]                                       |column    |[2] |row|[1]|with|[5]|partially matching picker field suggestion|
+|wait for                |5                                         |seconds                                                                    |
+|populate grid           |[1]                                       |column    |[10]|row|[1]|with|Stock                                         |
+|wait for                |5                                         |seconds                                                                    |
+|populate grid           |[1]                                       |column    |[6] |row|[1]|with|3                                             |
+|wait for                |5                                         |seconds                                                                    |
+|populate grid           |[1]                                       |column    |[7] |row|[1]|with|07/29/2023                                    |
+|click on link           |Add parts                                                                                                             |
+|populate grid           |[1]                                       |column    |[2] |row|[2]|with|[4]|partially matching picker field suggestion|
+|wait for                |10                                        |seconds                                                                    |
+|populate grid           |[1]                                       |column    |[4] |row|[2]|with|METAL MACHINING                               |
+|$quatity=               |get random integer from                   |1         |to  |100                                                        |
+|wait for                |5                                         |seconds                                                                    |
+|populate grid           |[1]                                       |column    |[6] |row|[2]|with|$quatity                                      |
+|wait for                |5                                         |seconds                                                                    |
+|populate grid           |[1]                                       |column    |[7] |row|[2]|with|07/30/2023                                    |
+|wait for                |5                                         |seconds                                                                    |
+|populate grid           |[1]                                       |column    |[10]|row|[2]|with|Process Lab                                   |
+|wait for                |30                                        |seconds                                                                    |
+|click on button         |PROCEED TO CHECKOUT                                                                                                   |
+|wait for                |25                                        |seconds                                                                    |
+|verify text             |Your order has been submitted successfully|is present                                                                 |
+|wait for                |25                                        |seconds                                                                    |
+|verify text             |Order Reference Number                    |is present                                                                 |
+|click on button         |ok                                                                                                                    |
+
+***!
+!*** Log out 
+!| script|
+|logout  |
+***!
+!*** Initialization and Login to Manager
+
+!| script                                                                                                   |
+|login into|https://appiancoe.vuram.com/suite/sites/as_virtualwarehouse/page/task|with username|LaxmiManager|
+
+
+***!
+!|script                                                          |
+|wait for       |30                        |seconds               |
+|click on grid  |[1]                       |column    |[1]|row|[1]|
+|wait for       |5                         |seconds               |
+|click on button|Accept                                           |
+|wait for       |5                         |seconds               |
+|take screenshot|Manager approval                                 |
+|verify text    |Stock                     |is present            |
+|wait for       |5                         |seconds               |
+|verify text    |1020                      |is present            |
+|wait for       |20                        |seconds               |
+|wait for progress bar                                            |
+|$comments=     |get random alphabet string|100                   |
+|populate field |Comments                  |with value|$comments  |
+|click on button|approve                                          |
+
+
+***!
+!*** Log out 
+!| script|
+|logout  |
+***!
+
+!*** Initialization and Login to Finance
+
+!| script                                                                                                   |
+|login into|https://appiancoe.vuram.com/suite/sites/as_virtualwarehouse/page/task|with username|LaxmiFinance|
+
+
+***!
+!|script                                                          |
+|wait for       |30                        |seconds               |
+|click on grid  |[1]                       |column    |[1]|row|[1]|
+|wait for progress bar                                            |
+|click on button|Accept                                           |
+|take screenshot|Finance Approval                                 |
+|verify text    |Stock                     |is present            |
+|verify text    |1020                      |is present            |
+|wait for       |20                        |seconds               |
+|wait for progress bar                                            |
+|$comments=     |get random alphabet string|100                   |
+|populate field |Comments                  |with value|$comments  |
+|wait for progress bar                                            |
+|click on button|approve                                          |
+
+
+***!
+!*** Log out 
+!| script|
+|logout  |
+***!
+
+!*** Initialization and Login to Rcords
+
+!| script                                                                                          |
+|login into|https://appiancoe.vuram.com/suite/sites/as_virtualwarehouse|with username|EmployeeLaxmi|
+***!
+!|script                                                         |
+|wait for                      |30      |seconds                 |
+|click on grid                 |[1]     |column|[1]  |row  |[1]  |
+|wait for                      |20      |seconds                 |
+|click on record view          |Related Actions                  |
+|wait for progress bar                                           |
+|click on record related action|Escalation                       |
+|wait for                      |10      |seconds                 |
+|wait for progress bar                                           |
+|populate field                |Reason  |with  |Date accepted    |
+|wait for                      |10      |seconds                 |
+|wait for progress bar                                           |
+|populate field                |Comments|with  |Need More Clarity|
+|wait for progress bar                                           |
+|wait for                      |5       |seconds                 |
+|click on button               |ESCALATE                         |
+
+***!
+!*** Log out 
+!| script|
+|logout  |
+***!
+
+!*** Initialization and Login to Reports
+
+!| script                                                                                                      |
+|login into|https://appiancoe.vuram.com/suite/sites/as_virtualwarehouse/page/reports|with username|LaxmiManager|
+
+***!
+!|script                                       |
+|wait for progress bar                         |
+|click on pie chart|Order Details|pie slice|[2]|
+|wait for          |30           |seconds      |
+|take screenshot   |Reports                    |
+|click on link     |close                      |
+|wait for          |20           |seconds      |
+|click on pie chart|Order Details|pie slice|[3]|
+|click on link     |close                      |
+|wait for          |5            |seconds      |
+***!
+!*** Log out 
+!| script|
+|logout  |
+***!
+ 
+ 
 
 
 
+!*** Initialization and Login to Tempo
+
+!| script                                                                                                         |
+|login into|https://appiancoe.vuram.com/suite/sites/as_virtualwarehouse/page/order-parts|with username|Virtualuser|
+
+
+***!
+!|script                                                                                                                        |
+|wait for progress bar                                                                                                          |
+|click on checkbox option|[1]                                                                                                   |
+|populate field          |Product Group             |with value|Gops                                                            |
+|click on radio option   |1020                                                                                                  |
+|click on radio option   |640200                                                                                                |
+|populate field          |IO                        |with      |[2] |partially matching picker field suggestion                 |
+|wait for                |5                         |seconds                                                                    |
+|populate field          |CC                        |with      |[1] |partially matching picker field suggestion                 |
+|wait for                |5                         |seconds                                                                    |
+|populate field          |Short Order Description   |with value|Testing inthe folder is the first step                          |
+|click on checkbox option|[1]                                                                                                   |
+|wait for                |5                         |seconds                                                                    |
+|click on checkbox option|[2]                                                                                                   |
+|wait for                |5                         |seconds                                                                    |
+|click on checkbox option|[1]                                                                                                   |
+|$deliver=               |get random alphabet string|20                                                                         |
+|populate field          |Deliver To                |with value|$deliver                                                        |
+|$title=                 |get random integer from   |1         |to  |100                                                        |
+|populate field          |Building                  |with value|$title                                                          |
+|$office=                |get random alphabet string|50                                                                         |
+|populate field          |Cube/Office/Lab Location  |with value|$office                                                         |
+|wait for progress bar                                                                                                          |
+|wait for                |5                         |seconds                                                                    |
+|populate grid           |[1]                       |column    |[2] |row|[1]|with|[5]|partially matching picker field suggestion|
+|wait for progress bar                                                                                                          |
+|wait for                |5                         |seconds                                                                    |
+|populate grid           |[1]                       |column    |[10]|row|[1]|with|Stock                                         |
+|wait for progress bar                                                                                                          |
+|wait for                |5                         |seconds                                                                    |
+|populate grid           |[1]                       |column    |[6] |row|[1]|with|3                                             |
+|wait for progress bar                                                                                                          |
+|populate grid           |[1]                       |column    |[7] |row|[1]|with|07/23/2023                                    |
+|wait for progress bar                                                                                                          |
+|wait for                |5                         |seconds                                                                    |
+|click on link           |Add parts                                                                                             |
+|wait for progress bar                                                                                                          |
+|wait for                |5                         |seconds                                                                    |
+|populate grid           |[1]                       |column    |[2] |row|[2]|with|[4]|partially matching picker field suggestion|
+|wait for progress bar                                                                                                          |
+|wait for                |5                         |seconds                                                                    |
+|populate grid           |[1]                       |column    |[6] |row|[2]|with|4                                             |
+|wait for progress bar                                                                                                          |
+|wait for                |5                         |seconds                                                                    |
+|populate grid           |[1]                       |column    |[7] |row|[2]|with|07/13/2023                                    |
+|wait for progress bar                                                                                                          |
+|wait for                |5                         |seconds                                                                    |
+|populate grid           |[1]                       |column    |[10]|row|[2]|with|Stock                                         |
+|wait for progress bar                                                                                                          |
+|click on grid           |[1]                       |column    |[14]|row|[1]                                                    |
+|wait for progress bar                                                                                                          |
+|wait for                |5                         |seconds                                                                    |
+|click on button         |Discard                                                                                               |
+|wait for progress bar                                                                                                          |
+|click on button         |yes                                                                                                   |
 ***!
 !*** Log out and tear down
 

@@ -22,18 +22,21 @@ Test
 ----
 !*** Initialization and Login to Tempo
 
-!| script             |com.appiancorp.ps.automatedtest.fixture.SitesFixture                        |
-|setup with           |CHROME                               |browser                               |
-|set appian url to    |https://appiancoe.vuram.com/suite/sites/as_virtualwarehouse/page/order-parts|
-|set appian version to|23.1                                                                        |
-|set appian locale to |en_US                                                                       |
-|login with username  |Virtualuser                                                                 |
+!| script             |com.appiancorp.ps.automatedtest.fixture.SitesFixture                    |
+|setup with           |CHROME                             |browser                             |
+|set appian url to    |https://appiancoe.vuram.com/suite/sites/as_virtualwarehouse/page/reports|
+|set appian version to|23.2                                                                    |
+|set appian locale to |en_US                                                                   |
+|login with username  |LaxmiFinance                                                            |
 
 ***!
-!|script                                          |
-|$TODAY=      |!today (dd/MM/yy)                  |
-|populate grid|[1]|column|[7] |row|[2]|with|$Today|
-|populate grid|[1]|column|[10]|row|[2]|with|Stock |
+!|script                                                                        |
+|click on pie chart|Order Details|pie slice|[2]                                 |
+|verify text|submitted|is present|
+|wait for          |30           |seconds                                       |
+|click on link     |close                                                       |
+|wait for          |20           |seconds                                       |
+
 
 ***!
 !*** Log out and tear down

@@ -22,7 +22,7 @@
 !| script             |com.appiancorp.ps.automatedtest.fixture.SitesFixture                 |
 |setup with           |CHROME                   |browser                                    |
 |set appian url to    |https://appiancoe.vuram.com/suite/sites/as_virtualwarehouse/page/task|
-|set appian version to|23.1                                                                 |
+|set appian version to|23.2                                                               |
 |set appian locale to |en_US                                                                |
 |login with username  |LaxmiManager             |and password             |12345            |
 
