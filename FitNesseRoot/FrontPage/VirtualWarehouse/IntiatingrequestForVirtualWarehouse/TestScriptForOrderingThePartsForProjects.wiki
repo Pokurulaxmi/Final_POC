@@ -19,15 +19,16 @@
 ----
 !*** Initialization and Login to Tempo
 
-!| script             |com.appiancorp.ps.automatedtest.fixture.SitesFixture                        |
-|setup with           |CHROME                               |browser                               |
-|set appian url to    |https://appiancoe.vuram.com/suite/sites/as_virtualwarehouse/page/order-parts|
-|set appian version to|23.2                                                                        |
-|set appian locale to |en_US                                                                       |
-|login with username  |Virtualuser                                                                 |
+!| script             |com.appiancorp.ps.automatedtest.fixture.SitesFixture                              |
+|setup with           |CHROME                                  |browser                                  |
+|set appian url to    |https://appiancoe.vuram.com/suite/sites/as_virtualwarehouse/page/virtual-warehouse|
+|set appian version to|23.2                                                                              |
+|set appian locale to |en_US                                                                             |
+|login with username  |Virtualuser                                                                       |
 
 ***!
 !|script                                                                                                                                        |
+|click on site page      |ORDER PARTS                                                                                                           |
 |click on checkbox option|[1]                                                                                                                   |
 |populate field          |Product Group                             |with value|Gops                                                            |
 |click on radio option   |1020                                                                                                                  |
@@ -84,26 +85,48 @@
 ***!
 !*** Initialization and Login to Manager
 
-!| script                                                                                                   |
-|login into|https://appiancoe.vuram.com/suite/sites/as_virtualwarehouse/page/task|with username|LaxmiManager|
+!| script                                                                                                                |
+|login into|https://appiancoe.vuram.com/suite/sites/as_virtualwarehouse/page/virtual-warehouse|with username|LaxmiManager|
 
 
 ***!
-!|script                                                          |
-|wait for       |30                        |seconds               |
-|click on grid  |[1]                       |column    |[1]|row|[1]|
-|wait for       |5                         |seconds               |
-|click on button|Accept                                           |
-|wait for       |5                         |seconds               |
-|take screenshot|Manager approval                                 |
-|verify text    |Stock                     |is present            |
-|wait for       |5                         |seconds               |
-|verify text    |1020                      |is present            |
-|wait for       |20                        |seconds               |
-|wait for progress bar                                            |
-|$comments=     |get random alphabet string|100                   |
-|populate field |Comments                  |with value|$comments  |
-|click on button|approve                                          |
+!|script                                                             |
+|click on site page|TASK                                             |
+|wait for          |30                        |seconds               |
+|click on grid     |[1]                       |column    |[1]|row|[1]|
+|wait for          |5                         |seconds               |
+|click on button   |Accept                                           |
+|wait for          |5                         |seconds               |
+|take screenshot   |Manager approval                                 |
+|verify text       |Stock                     |is present            |
+|wait for          |5                         |seconds               |
+|verify text       |1020                      |is present            |
+|wait for          |20                        |seconds               |
+|wait for progress bar                                               |
+|$comments=        |get random alphabet string|100                   |
+|populate field    |Comments                  |with value|$comments  |
+|click on button   |approve                                          |
+|click on site page              |VIRTUAL WAREHOUSE                                      |
+|wait for                        |30                        |seconds                     |
+|click on grid                   |[1]                       |column    |[1]  |row  |[1]  |
+|wait for                        |20                        |seconds                     |
+|click on record view            |Related Actions                                        |
+|click on record related action  |Escalation                                             |
+|wait for                        |10                        |seconds                     |
+|wait for progress bar                                                                   |
+|populate field                  |Reason                    |with      |Date accepted    |
+|wait for                        |10                        |seconds                     |
+|wait for progress bar                                                                   |
+|populate field                  |Comments                  |with      |Need More Clarity|
+|wait for                        |10                        |seconds                     |
+|wait for progress bar                                                                   |
+|click on button                 |ESCALATE                                               |
+|click on site page              |VIRTUAL WAREHOUSE                                      |
+|wait for                        |20                        |seconds                     |
+|wait for progress bar                                                                   |
+|populate record type user filter|DELIVERY TYPE             |with      |Requestor        |
+|wait for                        |10                        |seconds                     |
+|populate record type user filter|ORDER STATUS              |with      |Submitted        |
 
 
 ***!
@@ -114,60 +137,34 @@
 
 !*** Initialization and Login to Finance
 
-!| script                                                                                                   |
-|login into|https://appiancoe.vuram.com/suite/sites/as_virtualwarehouse/page/task|with username|LaxmiFinance|
+!| script                                                                                                                |
+|login into|https://appiancoe.vuram.com/suite/sites/as_virtualwarehouse/page/virtual-warehouse|with username|LaxmiFinance|
 
 
 ***!
-!|script                                                          |
-|wait for       |30                        |seconds               |
-|click on grid  |[1]                       |column    |[1]|row|[1]|
-|wait for progress bar                                            |
-|click on button|Accept                                           |
-|take screenshot|Finance Approval                                 |
-|verify text    |Stock                     |is present            |
-|verify text    |1020                      |is present            |
-|wait for       |20                        |seconds               |
-|wait for progress bar                                            |
-|$comments=     |get random alphabet string|100                   |
-|populate field |Comments                  |with value|$comments  |
-|wait for progress bar                                            |
-|click on button|approve                                          |
-
-
-***!
-!*** Log out 
-!| script|
-|logout  |
-***!
-
-!*** Initialization and Login to Rcords
-
-!| script                                                                                          |
-|login into|https://appiancoe.vuram.com/suite/sites/as_virtualwarehouse|with username|EmployeeLaxmi|
-***!
-!|script                                                         |
-|wait for                      |30      |seconds                 |
-|click on grid                 |[1]     |column|[1]  |row  |[1]  |
-|wait for                      |20      |seconds                 |
-|click on record view          |Related Actions                  |
-|wait for progress bar                                           |
-|click on record related action|Escalation                       |
-|wait for                      |10      |seconds                 |
-|wait for progress bar                                           |
-|populate field                |Reason  |with  |Date accepted    |
-|wait for                      |10      |seconds                 |
-|wait for progress bar                                           |
-|populate field                |Comments|with  |Need More Clarity|
-|wait for progress bar                                           |
-|wait for                      |5       |seconds                 |
-|click on button               |ESCALATE                         |
+!|script                                                                                 |
+|click on site page              |TASK                                                   |
+|wait for                        |30                        |seconds                     |
+|click on grid                   |[1]                       |column    |[1]  |row  |[1]  |
+|wait for progress bar                                                                   |
+|click on button                 |Accept                                                 |
+|take screenshot                 |Finance Approval                                       |
+|verify text                     |Stock                     |is present                  |
+|verify text                     |1020                      |is present                  |
+|wait for                        |20                        |seconds                     |
+|wait for progress bar                                                                   |
+|$comments=                      |get random alphabet string|100                         |
+|populate field                  |Comments                  |with value|$comments        |
+|wait for progress bar                                                                   |
+|click on button                 |approve                                                |
 
 ***!
 !*** Log out 
 !| script|
 |logout  |
 ***!
+
+
 
 !*** Initialization and Login to Reports
 
@@ -175,16 +172,22 @@
 |login into|https://appiancoe.vuram.com/suite/sites/as_virtualwarehouse/page/reports|with username|LaxmiManager|
 
 ***!
-!|script                                       |
-|wait for progress bar                         |
-|click on pie chart|Order Details|pie slice|[2]|
-|wait for          |30           |seconds      |
-|take screenshot   |Reports                    |
-|click on link     |close                      |
-|wait for          |20           |seconds      |
-|click on pie chart|Order Details|pie slice|[3]|
-|click on link     |close                      |
-|wait for          |5            |seconds      |
+!|script                                                 |
+|wait for progress bar                                   |
+|click on pie chart  |Order Details|pie slice|[2]        |
+|wait for            |30           |seconds              |
+|take screenshot     |Reports                            |
+|wait for            |30           |seconds              |
+|click on grid       |[1]          |column   |[1]|row|[1]|
+|wait for            |20           |seconds              |
+|click on record view|Related Actions                    |
+|wait for progress bar                                   |
+|wait for            |20           |seconds              |
+|click on site page  |REPORTS                            |
+|wait for            |20           |seconds              |
+|click on pie chart  |Order Details|pie slice|[3]        |
+|click on link       |close                              |
+|wait for            |5            |seconds              |
 ***!
 !*** Log out 
 !| script|

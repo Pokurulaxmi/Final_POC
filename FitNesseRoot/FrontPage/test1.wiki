@@ -30,12 +30,19 @@ Test
 |login with username  |LaxmiFinance                                                            |
 
 ***!
-!|script                                                                        |
-|click on pie chart|Order Details|pie slice|[2]                                 |
-|verify text|submitted|is present|
-|wait for          |30           |seconds                                       |
-|click on link     |close                                                       |
-|wait for          |20           |seconds                                       |
+!|script                                                 |
+|click on pie chart  |Order Details|pie slice|[2]        |
+|verify text         |submitted    |is present           |
+|wait for            |30           |seconds              |
+|click on grid       |[1]          |column   |[1]|row|[1]|
+|wait for            |20           |seconds              |
+|click on record view|Related Actions                    |
+|wait for progress bar                                   |
+|wait for progress bar                                   |
+|click on site page  |REPORTS                            |
+|click on pie chart  |Order Details|pie slice|[3]        |
+|click on link       |close                              |
+|wait for            |20           |seconds              |
 
 
 ***!

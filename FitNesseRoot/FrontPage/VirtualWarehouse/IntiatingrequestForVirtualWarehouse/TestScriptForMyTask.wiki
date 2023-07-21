@@ -22,19 +22,20 @@
 !| script             |com.appiancorp.ps.automatedtest.fixture.SitesFixture                 |
 |setup with           |CHROME                   |browser                                    |
 |set appian url to    |https://appiancoe.vuram.com/suite/sites/as_virtualwarehouse/page/task|
-|set appian version to|23.2                                                               |
+|set appian version to|23.2                                                                 |
 |set appian locale to |en_US                                                                |
 |login with username  |LaxmiManager             |and password             |12345            |
 
 ***!
-!|script                                                             |
-|wait for                    |30      |seconds                       |
-|click on grid               |[1]     |column   |[1]   |row   |[1]   |
-|click on button with tooltip|Accept this task to begin working on it|
-|verify text                 |Stock   |is present                    |
-|verify text                 |1020    |is present                    |
-|wait for                    |20      |seconds                       |
-|wait for progress bar                                               |
+!|script                                 |
+|wait for       |30   |seconds           |
+|click on grid  |[1]  |column|[1]|row|[1]|
+|click on button|Accept                  |
+|verify text    |Stock|is present        |
+|verify text    |asdfg|is not present    |
+|verify text    |1020 |is present        |
+|wait for       |20   |seconds           |
+|wait for progress bar                   |
 
 
 

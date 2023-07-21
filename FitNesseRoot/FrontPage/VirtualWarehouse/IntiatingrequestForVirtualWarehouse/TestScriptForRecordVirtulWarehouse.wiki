@@ -22,27 +22,32 @@
 !| script             |com.appiancorp.ps.automatedtest.fixture.SitesFixture       |
 |setup with           |CHROME                |browser                             |
 |set appian url to    |https://appiancoe.vuram.com/suite/sites/as_virtualwarehouse|
-|set appian version to|23.1                                                       |
+|set appian version to|23.2                                                       |
 |set appian locale to |en_US                                                      |
 |login with username  |EmployeeLaxmi         |and password         |12345         |
 
 ***!
-!|script                                                         |
-|wait for                      |30      |seconds                 |
-|click on grid                 |[1]     |column|[1]  |row  |[1]  |
-|wait for                      |20      |seconds                 |
-|click on record view          |Related Actions                  |
-|click on record related action|Escalation                       |
-|wait for                      |10      |seconds                 |
-|wait for progress bar                                           |
-|populate field                |Reason  |with  |Date accepted    |
-|wait for                      |10      |seconds                 |
-|wait for progress bar                                           |
-|populate field                |Comments|with  |Need More Clarity|
-|wait for                      |10      |seconds                 |
-|wait for progress bar                                           |
-|click on button               |ESCALATE                         |
-
+!|script                                                                |
+|wait for                        |30           |seconds                 |
+|click on grid                   |[1]          |column|[1]  |row  |[1]  |
+|wait for                        |20           |seconds                 |
+|click on record view            |Related Actions                       |
+|click on record related action  |Escalation                            |
+|wait for                        |10           |seconds                 |
+|wait for progress bar                                                  |
+|populate field                  |Reason       |with  |Date accepted    |
+|wait for                        |10           |seconds                 |
+|wait for progress bar                                                  |
+|populate field                  |Comments     |with  |Need More Clarity|
+|wait for                        |10           |seconds                 |
+|wait for progress bar                                                  |
+|click on button                 |ESCALATE                              |
+|click on site page              |VIRTUAL WAREHOUSE                     |
+|wait for                        |20           |seconds                 |
+|wait for progress bar                                                  |
+|populate record type user filter|DELIVERY TYPE|with  |Requestor        |
+|wait for                        |10           |seconds                 |
+|populate record type user filter|ORDER STATUS |with  |Submitted        |
 ***!
 !*** Log out and tear down
 
